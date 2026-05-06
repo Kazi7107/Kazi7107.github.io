@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #0f0f0f;
+  color: #e5e5e5;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 72px 32px 96px;
+}
+
+/* ── NAV ── */
+nav {
+  margin-bottom: 48px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  border-bottom: 1px solid #222;
+  padding-bottom: 16px;
+}
+
+.nav-list li {
+  padding: 0;
+  border: none;
+}
+
+.nav-list a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  padding: 6px 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.nav-list a:hover {
+  color: #e5e5e5;
+}
+
+.nav-list a[aria-current="page"] {
+  color: #ff0000;
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 4px;
+  color: #e5e5e5;
+}
+
+/* ── HEADER ── */
+header {
+  margin-bottom: 64px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff0000;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 40px 0;
+  border-top: 1px solid #222;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* ── BIO ── */
+.section-bio p {
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.8;
+}
+
+/* ── PHOTO ── */
+.section-photo img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 8px;
+}
+
+/* ── LISTS ── */
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+ul li, ol li {
+  padding: 12px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+ul li:last-child, ol li:last-child {
+  border-bottom: none;
+}
+
+ul li strong {
+  color: #e5e5e5;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+ol {
+  counter-reset: goals;
+}
+
+ol li {
+  counter-increment: goals;
+  display: flex;
+  gap: 16px;
+}
+
+ol li::before {
+  content: counter(goals);
+  color: #ff0000;
+  font-weight: 600;
+  font-size: 0.8rem;
+  min-width: 16px;
+}
+
+/* ── READING LIST ── */
+.reading-list li::before {
+  display: none;
+  content: none;
+}
+
+.reading-list li {
+  display: block;
+}
+
+.reading-list {
+  counter-reset: none;
+  margin-bottom: 32px;
+}
+
+.reading-list li {
+  counter-increment: none;
+  display: block;
+  padding: 0;
+}
+
+.reading-list li a {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+  border-bottom: 1px solid #1a1a1a;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: padding-left 0.15s;
+}
+
+.reading-list li:last-child a {
+  border-bottom: none;
+}
+
+.reading-list li a:hover {
+  padding-left: 8px;
+}
+
+.reading-list li a:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 4px;
+  padding-left: 8px;
+}
+
+.link-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+
+.link-source {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* highlighted link when navigated via keyboard arrow keys */
+.reading-list li a.kb-focus {
+  outline: 2px solid #ff0000;
+  outline-offset: 4px;
+  padding-left: 8px;
+}
+
+/* ── KEYBOARD DOCS ── */
+.keyboard-intro {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.kb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.kb-table th {
+  text-align: left;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #444;
+  padding: 0 12px 10px 0;
+  border-bottom: 1px solid #222;
+}
+
+.kb-table td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid #1a1a1a;
+  color: #888;
+  vertical-align: middle;
+}
+
+.kb-table tr:last-child td {
+  border-bottom: none;
+}
+
+.kb-table td:first-child {
+  white-space: nowrap;
+  color: #aaa;
+}
+
+.keyboard-note {
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.7;
+  border-left: 2px solid #ff0000;
+  padding-left: 14px;
+}
+
+.keyboard-note strong {
+  color: #888;
+}
+
+.keyboard-note em {
+  color: #aaa;
+  font-style: normal;
+  font-weight: 500;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #1a1a1a;
+  color: #aaa;
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding-top: 40px;
+  border-top: 1px solid #222;
+  font-size: 0.75rem;
+  color: #444;
+}
