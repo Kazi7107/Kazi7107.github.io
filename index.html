@@ -8,64 +8,24 @@
 </head>
 <body>
 
-  <nav aria-label="Site navigation">
-    <ul class="nav-list" role="menubar">
-      <li role="none"><a href="index.html" role="menuitem" tabindex="0" accesskey="h" aria-current="page">Home</a></li>
-      <li role="none"><a href="reading.html" role="menuitem" tabindex="0" accesskey="r">Things to Read</a></li>
-    </ul>
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">KS</a>
+      <ul class="nav-list" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0" accesskey="h" aria-current="page">Home</a></li>
+        <li role="none"><a href="reading.html" role="menuitem" tabindex="0" accesskey="r">Things to Read</a></li>
+      </ul>
+      <button class="nav-help" id="help-btn" aria-label="Keyboard shortcuts" aria-haspopup="dialog" aria-expanded="false">?</button>
+    </div>
   </nav>
 
-  <header>
-    <div class="header-inner">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Kazim<br>Syed.</h1>
-      <p class="tagline">Applied Computing Student&nbsp;&nbsp;/&nbsp;&nbsp;UX Designer&nbsp;&nbsp;/&nbsp;&nbsp;Soccer Enthusiast</p>
-    </div>
-  </header>
-
-  <main>
-    <section class="section-bio">
-      <span class="section-label">About</span>
-      <p>
-        I'm Kazim Syed, a college student studying Applied Computing with a passion for building things
-        that people actually enjoy using. Outside of school, I run my own design agency where I've
-        completed over 20 UX projects for real clients. When I'm not designing or coding, you'll find
-        me on the soccer field or gaming with friends.
-      </p>
-    </section>
-
-    <section class="section-photo">
-      <span class="section-label">My Photography</span>
-      <img src="images/photo.jpg" alt="Kazim Syed">
-    </section>
-
-    <section class="section-list">
-      <span class="section-label">What I'm Into</span>
-      <ul>
-        <li><strong>UX/UI Design</strong><span>20+ client projects delivered through my design agency</span></li>
-        <li><strong>Web Development</strong><span>Building clean, functional websites from scratch</span></li>
-        <li><strong>Applied Computing</strong><span>Studying how technology solves real-world problems</span></li>
-        <li><strong>Soccer</strong><span>Playing and watching whenever I get the chance</span></li>
-        <li><strong>Gaming</strong><span>Unwinding with games in my downtime</span></li>
-      </ul>
-    </section>
-
-    <section class="section-goals">
-      <span class="section-label">Goals</span>
-      <ol>
-        <li>Grow my design agency and take on bigger projects</li>
-        <li>Land an internship or role in UX or product design</li>
-        <li>Keep leveling up my development skills</li>
-      </ol>
-    </section>
-
-    <section class="section-keyboard" aria-labelledby="kb-heading">
-      <span class="section-label" id="kb-heading">Keyboard Access</span>
-
-      <p class="keyboard-intro">
-        This site is fully navigable without a mouse. Here's how:
-      </p>
-
+  <div class="modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Keyboard Access</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <p class="modal-intro">This site is fully navigable without a mouse. Here's how:</p>
       <table class="kb-table" aria-label="Keyboard shortcuts">
         <thead>
           <tr>
@@ -74,51 +34,97 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><kbd>Tab</kbd></td>
-            <td>Move forward through links and navigation items</td>
-          </tr>
-          <tr>
-            <td><kbd>Shift</kbd> + <kbd>Tab</kbd></td>
-            <td>Move backward through links and navigation items</td>
-          </tr>
-          <tr>
-            <td><kbd>Enter</kbd></td>
-            <td>Activate the focused link or button</td>
-          </tr>
-          <tr>
-            <td><kbd>←</kbd> / <kbd>→</kbd> in nav</td>
-            <td>Move between Home and Things to Read nav items</td>
-          </tr>
-          <tr>
-            <td><kbd>↑</kbd> / <kbd>↓</kbd> on reading page</td>
-            <td>Move up and down through the reading list links</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>H</kbd></td>
-            <td>Jump directly to the Home page (access key)</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>R</kbd></td>
-            <td>Jump directly to Things to Read (access key)</td>
-          </tr>
+          <tr><td><kbd>Tab</kbd></td><td>Move forward through links and navigation items</td></tr>
+          <tr><td><kbd>Shift</kbd> + <kbd>Tab</kbd></td><td>Move backward through links and navigation items</td></tr>
+          <tr><td><kbd>Enter</kbd></td><td>Activate the focused link or button</td></tr>
+          <tr><td><kbd>←</kbd> / <kbd>→</kbd> in nav</td><td>Move between Home and Things to Read nav items</td></tr>
+          <tr><td><kbd>↑</kbd> / <kbd>↓</kbd> on reading page</td><td>Move up and down through the reading list links</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>H</kbd></td><td>Jump directly to the Home page</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>R</kbd></td><td>Jump directly to Things to Read</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Close this help panel</td></tr>
         </tbody>
       </table>
-
       <p class="keyboard-note">
         The keyboard support on this site is especially designed to achieve two usability principles:
         <strong>visibility of system status</strong> and <strong>flexibility and efficiency of use</strong>.
-        A bright red focus ring is always shown on the currently focused element so users always know
-        exactly where they are on the page, satisfying visibility of system status.
-        Arrow-key navigation between reading list links and access-key shortcuts (Alt+H, Alt+R) let
-        experienced keyboard users move through the site faster, while beginners only need Tab and
-        Enter, satisfying flexibility and efficiency of use.
+        A focus ring is always shown on the active element so you always know exactly where you are,
+        satisfying visibility of system status. Arrow-key navigation and access-key shortcuts let
+        experienced keyboard users move faster, while beginners only need Tab and Enter, satisfying
+        flexibility and efficiency of use.
       </p>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Portfolio</span>
+        <h1>Kazim<br>Syed.</h1>
+        <p class="tagline">Applied Computing Student &nbsp;/&nbsp; UX Designer &nbsp;/&nbsp; Soccer Enthusiast</p>
+      </div>
+      <div class="hero-image">
+        <img src="images/photo.jpg" alt="Kazim Syed">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-bio">
+      <div class="container">
+        <span class="section-label">About</span>
+        <p>
+          I'm Kazim Syed, a college student studying Applied Computing with a passion for building things
+          that people actually enjoy using. Outside of school, I run my own design agency where I've
+          completed over 20 UX projects for real clients. When I'm not designing or coding, you'll find
+          me on the soccer field or gaming with friends.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-list">
+      <div class="container">
+        <span class="section-label">What I'm Into</span>
+        <ul class="interest-grid">
+          <li>
+            <strong>UX/UI Design</strong>
+            <span>20+ client projects delivered through my design agency</span>
+          </li>
+          <li>
+            <strong>Web Development</strong>
+            <span>Building clean, functional websites from scratch</span>
+          </li>
+          <li>
+            <strong>Applied Computing</strong>
+            <span>Studying how technology solves real-world problems</span>
+          </li>
+          <li>
+            <strong>Soccer</strong>
+            <span>Playing and watching whenever I get the chance</span>
+          </li>
+          <li>
+            <strong>Gaming</strong>
+            <span>Unwinding with games in my downtime</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-goals">
+      <div class="container">
+        <span class="section-label">Goals</span>
+        <ol class="goals-list">
+          <li>Grow my design agency and take on bigger projects</li>
+          <li>Land an internship or role in UX or product design</li>
+          <li>Keep leveling up my development skills</li>
+        </ol>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Kazim Syed</p>
+    <div class="container">
+      <p>&copy; 2026 Kazim Syed</p>
+    </div>
   </footer>
 
   <script src="scripts/main.js"></script>

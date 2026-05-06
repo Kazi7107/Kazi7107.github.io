@@ -1,66 +1,96 @@
-// ── NAV keyboard: arrow keys move between nav items ──
+// ── MODAL ──
 (function () {
-  const navItems = Array.from(document.querySelectorAll('.nav-list a'));
+  var btn = document.getElementById('help-btn');
+  var modal = document.getElementById('help-modal');
+  var closeBtn = document.getElementById('modal-close');
+  if (!btn || !modal) return;
+
+  function openModal() {
+    modal.removeAttribute('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+
+  // trap focus inside modal while open
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var focusable = Array.from(modal.querySelectorAll('button, a, [tabindex="0"]'));
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+})();
+
+// ── NAV arrow-key navigation ──
+(function () {
+  var navItems = Array.from(document.querySelectorAll('.nav-list a'));
 
   navItems.forEach(function (item, index) {
     item.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
-        const next = navItems[(index + 1) % navItems.length];
-        next.focus();
+        navItems[(index + 1) % navItems.length].focus();
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
-        const prev = navItems[(index - 1 + navItems.length) % navItems.length];
-        prev.focus();
+        navItems[(index - 1 + navItems.length) % navItems.length].focus();
       }
     });
   });
 })();
 
-// ── READING LIST keyboard: arrow keys move between links ──
+// ── READING LIST arrow-key navigation ──
 (function () {
-  const readingLinks = Array.from(
-    document.querySelectorAll('.reading-list a')
-  );
-  if (readingLinks.length === 0) return;
+  var links = Array.from(document.querySelectorAll('.reading-grid a'));
+  if (links.length === 0) return;
 
   var currentIndex = -1;
 
   function setFocus(index) {
-    if (currentIndex >= 0 && readingLinks[currentIndex]) {
-      readingLinks[currentIndex].classList.remove('kb-focus');
-      readingLinks[currentIndex].removeAttribute('tabindex');
-    }
+    if (currentIndex >= 0) links[currentIndex].classList.remove('kb-focus');
     currentIndex = index;
-    readingLinks[currentIndex].classList.add('kb-focus');
-    readingLinks[currentIndex].focus();
+    links[currentIndex].classList.add('kb-focus');
+    links[currentIndex].focus();
   }
 
   document.addEventListener('keydown', function (e) {
-    // Only act when no interactive element (except body) is focused,
-    // or when already focused within the reading list.
-    const active = document.activeElement;
-    const inNav = active && active.closest('.nav-list');
-    if (inNav) return;
+    var modal = document.getElementById('help-modal');
+    if (modal && !modal.hasAttribute('hidden')) return;
+    if (document.activeElement && document.activeElement.closest('.nav-list')) return;
 
     if (e.key === 'ArrowDown' || e.key === 'j') {
       e.preventDefault();
-      const next = currentIndex < readingLinks.length - 1 ? currentIndex + 1 : 0;
-      setFocus(next);
+      setFocus(currentIndex < links.length - 1 ? currentIndex + 1 : 0);
     } else if (e.key === 'ArrowUp' || e.key === 'k') {
       e.preventDefault();
-      const prev = currentIndex > 0 ? currentIndex - 1 : readingLinks.length - 1;
-      setFocus(prev);
+      setFocus(currentIndex > 0 ? currentIndex - 1 : links.length - 1);
     }
   });
 
-  // Keep currentIndex in sync when user tabs normally
-  readingLinks.forEach(function (link, index) {
-    link.addEventListener('focus', function () {
-      currentIndex = index;
-    });
-    link.addEventListener('blur', function () {
-      link.classList.remove('kb-focus');
-    });
+  links.forEach(function (link, index) {
+    link.addEventListener('focus', function () { currentIndex = index; });
+    link.addEventListener('blur', function () { link.classList.remove('kb-focus'); });
   });
 })();

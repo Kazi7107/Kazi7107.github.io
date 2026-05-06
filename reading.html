@@ -8,113 +8,24 @@
 </head>
 <body>
 
-  <nav aria-label="Site navigation">
-    <ul class="nav-list" role="menubar">
-      <li role="none"><a href="index.html" role="menuitem" tabindex="0" accesskey="h">Home</a></li>
-      <li role="none"><a href="reading.html" role="menuitem" tabindex="0" accesskey="r" aria-current="page">Things to Read</a></li>
-    </ul>
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">KS</a>
+      <ul class="nav-list" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0" accesskey="h">Home</a></li>
+        <li role="none"><a href="reading.html" role="menuitem" tabindex="0" accesskey="r" aria-current="page">Things to Read</a></li>
+      </ul>
+      <button class="nav-help" id="help-btn" aria-label="Keyboard shortcuts" aria-haspopup="dialog" aria-expanded="false">?</button>
+    </div>
   </nav>
 
-  <header>
-    <div class="header-inner">
-      <p class="eyebrow">Reading List</p>
-      <h1>Things<br>to Read.</h1>
-      <p class="tagline">Links to articles, tools, and resources I find interesting</p>
-    </div>
-  </header>
-
-  <main>
-    <section class="section-links" aria-label="Reading list links">
-      <span class="section-label">Web Design &amp; UX</span>
-      <ol class="reading-list" id="reading-list">
-        <li>
-          <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank" rel="noopener">
-            <span class="link-title">10 Usability Heuristics for UI Design</span>
-            <span class="link-source">Nielsen Norman Group</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.smashingmagazine.com/2022/03/definitive-guide-ux-research/" target="_blank" rel="noopener">
-            <span class="link-title">A Definitive Guide to UX Research</span>
-            <span class="link-source">Smashing Magazine</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.awwwards.com/websites/portfolio/" target="_blank" rel="noopener">
-            <span class="link-title">Award-Winning Portfolio Sites</span>
-            <span class="link-source">Awwwards</span>
-          </a>
-        </li>
-      </ol>
-
-      <span class="section-label">Development</span>
-      <ol class="reading-list" id="reading-list-dev" start="4">
-        <li>
-          <a href="https://web.dev/learn/css/" target="_blank" rel="noopener">
-            <span class="link-title">Learn CSS — Comprehensive Course</span>
-            <span class="link-source">web.dev (Google)</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://javascript.info/" target="_blank" rel="noopener">
-            <span class="link-title">The Modern JavaScript Tutorial</span>
-            <span class="link-source">javascript.info</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">
-            <span class="link-title">A Complete Guide to Flexbox</span>
-            <span class="link-source">CSS-Tricks</span>
-          </a>
-        </li>
-      </ol>
-
-      <span class="section-label">Accessibility</span>
-      <ol class="reading-list" id="reading-list-a11y" start="7">
-        <li>
-          <a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">
-            <span class="link-title">Keyboard Accessibility</span>
-            <span class="link-source">WebAIM</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener">
-            <span class="link-title">The A11Y Project Checklist</span>
-            <span class="link-source">The A11Y Project</span>
-          </a>
-        </li>
-      </ol>
-
-      <span class="section-label">Inspiration &amp; Career</span>
-      <ol class="reading-list" id="reading-list-career" start="9">
-        <li>
-          <a href="https://www.fastcompany.com/design" target="_blank" rel="noopener">
-            <span class="link-title">Design News &amp; Innovation</span>
-            <span class="link-source">Fast Company Design</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.levels.fyi/" target="_blank" rel="noopener">
-            <span class="link-title">Tech Compensation &amp; Career Levels</span>
-            <span class="link-source">Levels.fyi</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://paulgraham.com/articles.html" target="_blank" rel="noopener">
-            <span class="link-title">Essays on Startups &amp; Thinking</span>
-            <span class="link-source">Paul Graham</span>
-          </a>
-        </li>
-      </ol>
-    </section>
-
-    <section class="section-keyboard" aria-labelledby="kb-heading">
-      <span class="section-label" id="kb-heading">Keyboard Access</span>
-
-      <p class="keyboard-intro">
-        This site is fully navigable without a mouse. Here's how:
-      </p>
-
+  <div class="modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Keyboard Access</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <p class="modal-intro">This site is fully navigable without a mouse. Here's how:</p>
       <table class="kb-table" aria-label="Keyboard shortcuts">
         <thead>
           <tr>
@@ -123,51 +34,137 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><kbd>Tab</kbd></td>
-            <td>Move forward through links and navigation items</td>
-          </tr>
-          <tr>
-            <td><kbd>Shift</kbd> + <kbd>Tab</kbd></td>
-            <td>Move backward through links and navigation items</td>
-          </tr>
-          <tr>
-            <td><kbd>Enter</kbd></td>
-            <td>Activate the focused link or button</td>
-          </tr>
-          <tr>
-            <td><kbd>←</kbd> / <kbd>→</kbd> in nav</td>
-            <td>Move between Home and Things to Read nav items</td>
-          </tr>
-          <tr>
-            <td><kbd>↑</kbd> / <kbd>↓</kbd> on this page</td>
-            <td>Move up and down through the reading list links</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>H</kbd></td>
-            <td>Jump directly to the Home page (access key)</td>
-          </tr>
-          <tr>
-            <td><kbd>Alt</kbd> + <kbd>R</kbd></td>
-            <td>Jump directly to Things to Read (access key)</td>
-          </tr>
+          <tr><td><kbd>Tab</kbd></td><td>Move forward through links and navigation items</td></tr>
+          <tr><td><kbd>Shift</kbd> + <kbd>Tab</kbd></td><td>Move backward through links and navigation items</td></tr>
+          <tr><td><kbd>Enter</kbd></td><td>Activate the focused link or button</td></tr>
+          <tr><td><kbd>←</kbd> / <kbd>→</kbd> in nav</td><td>Move between Home and Things to Read nav items</td></tr>
+          <tr><td><kbd>↑</kbd> / <kbd>↓</kbd> on this page</td><td>Move up and down through the reading list links</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>H</kbd></td><td>Jump directly to the Home page</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>R</kbd></td><td>Jump directly to Things to Read</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Close this help panel</td></tr>
         </tbody>
       </table>
-
       <p class="keyboard-note">
         The keyboard support on this site is especially designed to achieve two usability principles:
         <strong>visibility of system status</strong> and <strong>flexibility and efficiency of use</strong>.
-        A bright red focus ring is always shown on the currently focused element so users always know
-        exactly where they are on the page, satisfying visibility of system status.
-        Arrow-key navigation between reading list links and access-key shortcuts (Alt+H, Alt+R) let
-        experienced keyboard users move through the site faster, while beginners only need Tab and
-        Enter, satisfying flexibility and efficiency of use.
+        A focus ring is always shown on the active element so you always know exactly where you are,
+        satisfying visibility of system status. Arrow-key navigation and access-key shortcuts let
+        experienced keyboard users move faster, while beginners only need Tab and Enter, satisfying
+        flexibility and efficiency of use.
       </p>
+    </div>
+  </div>
+
+  <header class="reading-hero">
+    <div class="container">
+      <span class="eyebrow">Reading List</span>
+      <h1>Things<br>to Read.</h1>
+      <p class="tagline">Articles, tools, and resources I find interesting</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-links">
+      <div class="container">
+
+        <div class="reading-category">
+          <span class="section-label">Web Design &amp; UX</span>
+          <ul class="reading-grid" id="reading-list">
+            <li>
+              <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank" rel="noopener">
+                <span class="link-title">10 Usability Heuristics for UI Design</span>
+                <span class="link-source">Nielsen Norman Group</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.smashingmagazine.com/2022/03/definitive-guide-ux-research/" target="_blank" rel="noopener">
+                <span class="link-title">A Definitive Guide to UX Research</span>
+                <span class="link-source">Smashing Magazine</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.awwwards.com/websites/portfolio/" target="_blank" rel="noopener">
+                <span class="link-title">Award-Winning Portfolio Sites</span>
+                <span class="link-source">Awwwards</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reading-category">
+          <span class="section-label">Development</span>
+          <ul class="reading-grid">
+            <li>
+              <a href="https://web.dev/learn/css/" target="_blank" rel="noopener">
+                <span class="link-title">Learn CSS — Comprehensive Course</span>
+                <span class="link-source">web.dev (Google)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://javascript.info/" target="_blank" rel="noopener">
+                <span class="link-title">The Modern JavaScript Tutorial</span>
+                <span class="link-source">javascript.info</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">
+                <span class="link-title">A Complete Guide to Flexbox</span>
+                <span class="link-source">CSS-Tricks</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reading-category">
+          <span class="section-label">Accessibility</span>
+          <ul class="reading-grid">
+            <li>
+              <a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">
+                <span class="link-title">Keyboard Accessibility</span>
+                <span class="link-source">WebAIM</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener">
+                <span class="link-title">The A11Y Project Checklist</span>
+                <span class="link-source">The A11Y Project</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reading-category">
+          <span class="section-label">Inspiration &amp; Career</span>
+          <ul class="reading-grid">
+            <li>
+              <a href="https://www.fastcompany.com/design" target="_blank" rel="noopener">
+                <span class="link-title">Design News &amp; Innovation</span>
+                <span class="link-source">Fast Company Design</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.levels.fyi/" target="_blank" rel="noopener">
+                <span class="link-title">Tech Compensation &amp; Career Levels</span>
+                <span class="link-source">Levels.fyi</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://paulgraham.com/articles.html" target="_blank" rel="noopener">
+                <span class="link-title">Essays on Startups &amp; Thinking</span>
+                <span class="link-source">Paul Graham</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Kazim Syed</p>
+    <div class="container">
+      <p>&copy; 2026 Kazim Syed</p>
+    </div>
   </footer>
 
   <script src="scripts/main.js"></script>
