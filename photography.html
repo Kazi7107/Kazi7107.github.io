@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography — Kazim Syed</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">KS</a>
+      <ul class="nav-list" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem" tabindex="0" accesskey="h">Home</a></li>
+        <li role="none"><a href="reading.html" role="menuitem" tabindex="0" accesskey="r">Things to Read</a></li>
+        <li role="none"><a href="photography.html" role="menuitem" tabindex="0" accesskey="p" aria-current="page">Photography</a></li>
+      </ul>
+      <button class="nav-help" id="help-btn" aria-label="Keyboard shortcuts" aria-haspopup="dialog" aria-expanded="false">?</button>
+    </div>
+  </nav>
+
+  <div class="modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Keyboard Access</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+      </div>
+      <p class="modal-intro">This site is fully navigable without a mouse. Here's how:</p>
+      <table class="kb-table" aria-label="Keyboard shortcuts">
+        <thead>
+          <tr>
+            <th scope="col">Key(s)</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><kbd>Tab</kbd></td><td>Move forward through links and navigation items</td></tr>
+          <tr><td><kbd>Shift</kbd> + <kbd>Tab</kbd></td><td>Move backward through links and navigation items</td></tr>
+          <tr><td><kbd>Enter</kbd></td><td>Activate the focused link or button</td></tr>
+          <tr><td><kbd>&#x2190;</kbd> / <kbd>&#x2192;</kbd> in nav</td><td>Move between nav items</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>H</kbd></td><td>Jump directly to the Home page</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>R</kbd></td><td>Jump directly to Things to Read</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>P</kbd></td><td>Jump directly to Photography</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Close this help panel</td></tr>
+        </tbody>
+      </table>
+      <p class="keyboard-note">
+        The keyboard support on this site is especially designed to achieve two usability principles:
+        <strong>visibility of system status</strong> and <strong>flexibility and efficiency of use</strong>.
+        A focus ring is always shown on the active element so you always know exactly where you are,
+        satisfying visibility of system status. Arrow-key navigation and access-key shortcuts let
+        experienced keyboard users move faster, while beginners only need Tab and Enter, satisfying
+        flexibility and efficiency of use.
+      </p>
+    </div>
+  </div>
+
+  <header class="reading-hero">
+    <div class="container">
+      <span class="eyebrow">Through the Lens</span>
+      <h1>Photo&shy;graphy.</h1>
+      <p class="tagline">Chasing light across landscapes I've been lucky enough to stand in</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section-bio">
+      <div class="container">
+        <span class="section-label">About my photography</span>
+        <p>
+          Photography is how I slow down. There's something about framing a scene — waiting for the
+          light to shift, deciding what to include and what to leave out — that forces a kind of
+          attention I don't get anywhere else. I picked up a camera a few years ago and quickly
+          realized I wasn't content just shooting locally. I started planning trips around locations
+          I wanted to photograph: places where the landscape does something dramatic, where the
+          conditions are unpredictable, and where getting the shot means actually being there at the
+          right moment. It's equal parts travel, patience, and luck.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-photo-feature">
+      <div class="container">
+        <span class="section-label">Banff, Alberta</span>
+        <p class="photo-intro">
+          Banff was one of those trips I'd been putting off for years, convinced the photographs
+          I'd seen online were exaggerated. They weren't. The Rockies in October sit in a kind of
+          golden-hour glow for most of the afternoon, and the lakes reflect colours that feel
+          almost unreal. I spent three days there with my camera, waking up before sunrise and
+          staying out until the last light disappeared behind the peaks. These are three of my
+          favourite frames from that trip.
+        </p>
+
+        <div class="photo-grid">
+          <figure class="photo-card photo-card--wide">
+            <img src="images/banff-1.jpg" alt="Golden evening light over a mountain ridge in Banff National Park">
+            <figcaption>
+              <span class="photo-title">Last Light on the Ridge</span>
+              <span class="photo-meta">Banff National Park &nbsp;&middot;&nbsp; October 2025</span>
+            </figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="images/banff-2.jpg" alt="A still mountain lake reflecting the surrounding peaks in Banff">
+            <figcaption>
+              <span class="photo-title">Still Water</span>
+              <span class="photo-meta">Banff National Park &nbsp;&middot;&nbsp; October 2025</span>
+            </figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="images/banff-3.jpg" alt="Rocky mountain valley bathed in afternoon sunlight in Banff">
+            <figcaption>
+              <span class="photo-title">Valley Floor</span>
+              <span class="photo-meta">Banff National Park &nbsp;&middot;&nbsp; October 2025</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-goals">
+      <div class="container">
+        <span class="section-label">What's next</span>
+        <ol class="goals-list">
+          <li>Return to Banff in winter to shoot the frozen lakes</li>
+          <li>Plan a trip to Patagonia for landscape work</li>
+          <li>Build a proper photography portfolio site</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Kazim Syed</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
